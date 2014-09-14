@@ -5,19 +5,18 @@ class ApplicationController < ActionController::Base
 
   layout :set_layout
 
-  rescue_from ActionController::RoutingError, with: :rescue404
+  class Forbidden < ActionController::ActionControllerError; end
+  class IpAddressRejected < ActionController::ActionControllerError; end
 
-  def rescue404(e)
-    @exception = e
-    render 'errors/not_found', status: 404
-  end
+  include ErrorHandlers if Rails.env.production?
 
   private
   def set_layout
-    if params[:controller].match(%r{\A(staff|admin|customer)/})
+    if request.path.match(%r{/(staff|admin|customer)\b})
       Regexp.last_match[1]
     else
       'customer'
     end
   end
+
 end

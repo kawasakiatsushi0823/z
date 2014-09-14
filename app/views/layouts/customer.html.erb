@@ -2,13 +2,13 @@
 <html>
 <head>
   <title>Z</title>
-  <%= stylesheet_link_tag "staff", media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag "customer", media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <div id="wrapper">
-    <%= render 'staff/shared/header' %>
+    <%= render 'customer/shared/header' %>
     <div id="container">
       <%= yield %>
     </div>
