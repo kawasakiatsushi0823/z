@@ -1,4 +1,4 @@
-StaffMember.create!(
+AdminMember.create!(
   email: 'kawasaki@rejob.co.jp',
   family_name: '川崎',
   given_name: '暑士',
@@ -6,5 +6,4 @@ StaffMember.create!(
   given_name_kana: 'アツシ',
   password: 'password',
   start_data: Date.today,
-
 )
