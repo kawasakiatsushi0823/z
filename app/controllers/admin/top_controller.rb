@@ -1,5 +1,9 @@
 class Admin::TopController < Admin::Base
   def index
-    render action: 'index'
+    if current_admin_member
+      render action: 'dashboard'
+    else
+      render action: 'index'
+    end
   end
 end

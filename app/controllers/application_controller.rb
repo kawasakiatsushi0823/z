@@ -12,10 +12,10 @@ class ApplicationController < ActionController::Base
 
   private
   def set_layout
-    if request.path.match(%r{/(staff|admin|customer)\b})
+    if request.path.match(%r{(staff|admin|customer)\b})
       Regexp.last_match[1]
     else
-      'customer'
+      'staff'
     end
   end
 
