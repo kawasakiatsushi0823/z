@@ -8,8 +8,8 @@
 </div>
 <% if f.object.new_record? %>
 <div>
-  <%= f.label :hashed_password, 'パスワード', class: 'required' %>
-  <%= f.text_field :hashed_password, size: 32, required: true %>
+  <%= f.label :password, 'パスワード', class: 'required' %>
+  <%= f.password_field :password, size: 32, required: true %>
 </div>
 <% end %>
 <div>
@@ -27,8 +27,8 @@
   <%= f.text_field :start_data, required: true %>
 </div>
 <div>
-  <%= f.label :end_data, '終了日', class: 'required' %>
-  <%= f.text_field :end_data, required: true %>
+  <%= f.label :end_data, '終了日' %>
+  <%= f.text_field :end_data %>
 </div>
 <div class="check-boxes">
   <%= f.check_box :suspended %>

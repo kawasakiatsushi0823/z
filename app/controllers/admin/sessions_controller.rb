@@ -28,4 +28,5 @@ class Admin::SessionsController < Admin::Base
     session.delete(:admin_member_id)
     redirect_to :admin_root
   end
+
 end

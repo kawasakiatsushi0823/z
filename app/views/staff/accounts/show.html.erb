@@ -1,0 +1,37 @@
+<%= @title = 'アカウント管理' %>
+<h1> <%= @title %></h1>
+
+<div class="table-wrapper">
+  <div class="links">
+    <%= link_to 'アカウント情報編集', :edit_staff_account %>
+  </div>
+
+  <table class="attributes">
+    <tr>
+      <th>氏名</th>
+      <td>
+        <%= @staff_member.family_name %>
+        <%= @staff_member.given_name %>
+      </td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td>
+        <%= @staff_member.family_name_kana %>
+        <%= @staff_member.given_name_kana %>
+      </td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td class="email">
+        <%= @staff_member.email %>
+      </td>
+    </tr>
+    <tr>
+      <th>開始日</th>
+      <td class="date">
+        <%= @staff_member.start_data %>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -10,4 +10,10 @@ class StaffMember < ActiveRecord::Base
       self.hashed_password = nil
     end
   end
+
+  def active?
+    !suspended? && start_data <= Date.today &&
+      (end_data.nil? || end_data > Date.today)
+  end
+
 end
