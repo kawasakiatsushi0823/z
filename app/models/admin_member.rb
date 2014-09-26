@@ -11,4 +11,9 @@ class AdminMember < ActiveRecord::Base
     end
   end
 
+  def active?
+    !suspended? && start_data <= Date.today &&
+      (end_data.nil? || end_data > Date.today)
+  end
+
 end

@@ -8,8 +8,8 @@ class Staff::Base < ApplicationController
   private
   def authorize
     unless current_staff_member
-      flash.alert = 'ログインしてください。'
-      redirect_to :login
+      flash.alert = '職員としてログインしてください。'
+      redirect_to :staff_login
     end
   end
 

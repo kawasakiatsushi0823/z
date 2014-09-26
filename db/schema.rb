@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914182128) do
+ActiveRecord::Schema.define(version: 20140922011527) do
 
   create_table "admin_members", force: true do |t|
     t.string   "email",                            null: false
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20140914182128) do
   add_index "admin_members", ["email_for_index"], name: "index_admin_members_on_email_for_index", unique: true, using: :btree
   add_index "admin_members", ["family_name_kana", "given_name_kana"], name: "index_admin_members_on_family_name_kana_and_given_name_kana", using: :btree
 
+  create_table "staff_events", force: true do |t|
+    t.integer  "staff_member_id", null: false
+    t.string   "type",            null: false
+    t.datetime "created_at",      null: false
+  end
+
+  add_index "staff_events", ["created_at"], name: "index_staff_events_on_created_at", using: :btree
+  add_index "staff_events", ["staff_member_id", "created_at"], name: "index_staff_events_on_staff_member_id_and_created_at", using: :btree
+
   create_table "staff_members", force: true do |t|
     t.string   "email",                            null: false
     t.string   "email_for_index",                  null: false
@@ -48,5 +57,7 @@ ActiveRecord::Schema.define(version: 20140914182128) do
 
   add_index "staff_members", ["email_for_index"], name: "index_staff_members_on_email_for_index", unique: true, using: :btree
   add_index "staff_members", ["family_name_kana", "given_name_kana"], name: "index_staff_members_on_family_name_kana_and_given_name_kana", using: :btree
+
+  add_foreign_key "staff_events", "staff_members", name: "staff_events_staff_member_id_fk"
 
 end

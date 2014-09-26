@@ -1,4 +1,5 @@
 class Staff::AccountsController < Staff::Base
+  skip_before_action :authorize
   def show
     @staff_member = current_staff_member
   end
