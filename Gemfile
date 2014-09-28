@@ -28,6 +28,10 @@ gem 'therubyracer', platforms: :ruby
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails-i18n', '~> 4.0.1'
 gem 'foreigner', '~> 1.6.1'
+gem 'kaminari', '~> 0.15.1'
+gem 'date_validator', '~> 0.7.0'
+gem 'email_validator', '~> 1.4.0'
+gem 'quiet_assets', '~> 1.0.2', group: :development
 gem 'nokogiri', '~> 1.6.1'
 group :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'

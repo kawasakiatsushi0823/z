@@ -9,7 +9,7 @@ class Staff::Authenticator
       !@staff_member.suspended? &&
       @staff_member.hashed_password &&
       @staff_member.start_data <= Date.today &&
-      (@staff_member.end_data.nil? || @staff_member.end_date > Date.today) &&
+      (@staff_member.end_data.nil? || @staff_member.end_data > Date.today) &&
       BCrypt::Password.new(@staff_member.hashed_password) == raw_password
   end
 end

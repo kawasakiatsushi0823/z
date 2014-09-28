@@ -14,4 +14,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree ./shared
-//= require_tree ./admin
+//= require_tree ./staff

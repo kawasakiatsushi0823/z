@@ -1,36 +1,11 @@
-<div class="notes">
-  <span class="mark">*</span>印の付いた項目は必須入力です。
-</div>
-
-<div>
-  <%= f.label :email, 'メールアドレス', class: 'required' %>
-  <%= f.text_field :email, size: 32, required: true %>
-</div>
-<% if f.object.new_record? %>
-<div>
-  <%= f.label :password, 'パスワード', class: 'required' %>
-  <%= f.password_field :password, size: 32, required: true %>
-</div>
-<% end %>
-<div>
-  <%= f.label :family_name, '氏名', class: 'required' %>
-  <%= f.text_field :family_name, required: true %>
-  <%= f.text_field :given_name, required: true %>
-</div>
-<div>
-  <%= f.label :family_name_kana, 'フリガナ', class: 'required' %>
-  <%= f.text_field :family_name_kana, required: true %>
-  <%= f.text_field :given_name_kana, required: true %>
-</div>
-<div>
-  <%= f.label :start_data, '開始日', class: 'required' %>
-  <%= f.text_field :start_data, required: true %>
-</div>
-<div>
-  <%= f.label :end_data, '終了日' %>
-  <%= f.text_field :end_data %>
-</div>
-<div class="check-boxes">
-  <%= f.check_box :suspended %>
-  <%= f.label :suspended, 'アカウント停止' %>
-</div>
+<%= markup do |m|
+p = StaffMemberFormPresenter.new(f, self)
+ m << p.notes
+ m << p.text_field_block(:email, 'メールアドレス', size: 32)
+ m << p.password_field_block(:password, 'パスワード', size: 32)
+ m << p.full_name_block(:family_name, :given_name, '氏名')
+ m << p.full_name_block(:family_name_kana, :given_name_kana, 'フリガナ')
+ m << p.date_field_block(:start_data, '開始日')
+ m << p.date_field_block(:end_data, '終了日', required: false)
+ m << p.check_boxes
+end %>
