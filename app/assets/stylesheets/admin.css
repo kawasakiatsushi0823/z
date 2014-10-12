@@ -1,5 +1,6 @@
 /*
  *= require_tree ./admin
+ *= require jquery.ui.datepicker
  *= require_tree ./shared
  */
 

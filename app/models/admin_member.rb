@@ -1,16 +1,15 @@
 class AdminMember < ActiveRecord::Base
-  before_validation do
-    self.email = normalize_as_email(email)
-    self.email_for_index = email.downcase if email
-  end
+  include EmailHolder
+  include PasswordHolder
 
-  def password=(raw_password)
-    if raw_password.kind_of?(String)
-      self.hashed_password = BCrypt::Password.create(raw_password)
-    elsif raw_password.nil?
-      self.hashed_password = nil
-    end
-  end
+  #PasswordHolderの作成
+  #def password=(raw_password)
+  #  if raw_password.kind_of?(String)
+  #    self.hashed_password = BCrypt::Password.create(raw_password)
+  #  elsif raw_password.nil?
+  #    self.hashed_password = nil
+  #  end
+  #end
 
   def active?
     !suspended? && start_data <= Date.today &&
